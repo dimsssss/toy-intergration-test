@@ -26,11 +26,57 @@
 
 ## 🏗 설치
 
+### 웹 서버
+
 ```shell
 git clone https://github.com/dimsssss/toy-intergration-test
 cd toy-intergration-test
 npm install
 ```
+
+### 데이터베이스 
+```shell
+docker run --name=intergration -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=intergration -p 6603:3306 -d mysql:latest
+```
+### 데이터베이스 마이그레이션
+```shell
+# 초기화
+npx sequelize-cli init
+# migration
+npx sequelize-cli db:migrate
+# migration 되돌리기
+npx sequelize-cli db:migrate:undo:all
+```
+
+### 데이터베이스 설정 파일
+config/config.json
+```json
+{
+  "development": {
+    "username": "root",
+    "password": "1234",
+    "database": "intergration",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "1234",
+    "database": "intergration",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "1234",
+    "database": "intergration",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
+
+```
+
 
 ## 🧾 사용법
 
