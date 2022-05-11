@@ -2,7 +2,6 @@
     <h1 align="center">
         통합테스트 for nodejs
     </h1>
-    <hr width=”15px” color=”black” noshade />
     <p align="center"><a href="http://www.yes24.com/Product/Goods/104084175">단위 테스트</a> 7장 내용을 nodejs로 포팅한 프로젝트입니다<a href="https://github.com/dimsssss/toy-intergration-test"></a>.</p>
 </p>
 
@@ -83,5 +82,5 @@ config/config.json
 ### 테스트 코드 실행
 
 ```shell
-npm run test
+npm run intergration
 ```
