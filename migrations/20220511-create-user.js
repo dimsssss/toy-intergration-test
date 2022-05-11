@@ -6,7 +6,12 @@ module.exports = {
                 allowNull: false,
                 primaryKey: true
             },
-            email: Sequelize.DataTypes.STRING,
+            email: {
+                type: Sequelize.DataTypes.STRING,
+                validate: {
+                    isEmail: true
+                }
+            },
             type: {
                 type: Sequelize.DataTypes.ENUM,
                 defaultValue: 'EMPLOYEE',
