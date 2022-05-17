@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "test": "jest",
     "dev": "nodemon --delay 1000ms ./bin/www",
-    "intergration": "npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npm run test"
+    "intergration-clear": "docker stop $(docker ps -aqf \"name=intergration\") && docker rm $(docker ps -aqf \"name=intergration\")",
+    "intergration-test": "docker run --name=intergration -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=intergration -p 6603:3306 -d mysql:latest && sleep 18 && npx sequelize-cli db:migrate --debug && jest"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
